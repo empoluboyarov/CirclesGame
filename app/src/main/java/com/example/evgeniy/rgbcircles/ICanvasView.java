@@ -5,5 +5,5 @@ package com.example.evgeniy.rgbcircles;
  */
 public interface ICanvasView {
 
-    void drawCircle (MainCircle circle);
+    void drawCircle (SimpleCircle circle);
 }
