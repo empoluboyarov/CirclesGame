@@ -43,7 +43,7 @@ public class EnemyCircle extends SimpleCircle {
         } else setColor(ENEMY_COLOR);
     }
 
-    private boolean isSmallerThen(SimpleCircle simpleCircle) {
+    public boolean isSmallerThen(SimpleCircle simpleCircle) {
         if (radius < simpleCircle.radius)
             return true;
         else return false;

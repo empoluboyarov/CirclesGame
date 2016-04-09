@@ -71,9 +71,25 @@ public class GameManager {
     }
 
     private void checkCollision() {
-        for (EnemyCircle circle : circles){
-            if (mainCircle.isIntersect(circle))
-                gameEnd();
+        SimpleCircle circleForDel = null;
+        for (EnemyCircle circle : circles) {
+            if (mainCircle.isIntersect(circle)) {
+                if (circle.isSmallerThen(mainCircle)) {
+                    mainCircle.growRadius(circle);
+                    circleForDel = circle;
+                    calculateAndSetCirclesColor();
+                    break;
+                } else {
+                    gameEnd();
+                    return;
+                }
+            }
+        }
+        if (circleForDel != null){
+            circles.remove(circleForDel);
+        }
+        if (circles.isEmpty()){
+            gameEnd();
         }
     }
 
