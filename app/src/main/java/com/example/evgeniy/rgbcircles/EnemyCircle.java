@@ -49,8 +49,16 @@ public class EnemyCircle extends SimpleCircle {
         else return false;
     }
 
-    public void moveOneStep() {
+    public void moveOneStep() {  // двжение вражеских кругов при движении основного
         x+=dx;
         y+=dy;
+        checkBounds(); //проверка достижения границ экрана
+    }
+
+    private void checkBounds() {
+        if (x > GameManager.getWidth()|| x < 0)
+            dx = -dx;
+        if (y > GameManager.getHeight() || y < 0)
+            dy = -dy;
     }
 }
